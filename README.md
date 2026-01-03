@@ -1,16 +1,4 @@
-# Cross-Platform-PowerShell-SQL-Telemetry
-Here is the **complete, clean, final README** for your project.
-This version is **portfolio-ready**, **SOC-aligned**, and clearly explains the *process*, not just the script.
 
-You can copy-paste this directly into **`README.md`**.
-
----
-
-# Cross-Platform PowerShell & SQL Telemetry
-
-**Endpoint Visibility, Risk Assessment, and Security Intelligence**
-
----
 
 ## Overview
 
