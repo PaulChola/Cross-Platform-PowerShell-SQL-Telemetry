@@ -4,7 +4,7 @@
 
 **Cross-Platform PowerShell & SQL Telemetry** is a cybersecurity project that focuses on collecting **endpoint telemetry** from both **Windows and Linux systems** using PowerShell and storing that data in a **SQL database** for analysis.
 
-The collected data enables **endpoint visibility**, **risk assessment**, and **vulnerability analysis** by allowing security practitioners to run structured SQL queries against centralized endpoint information.
+The project features a **menu-driven interface** that allows users to choose between different telemetry collection methods, including cross-platform, Windows-specific, and Linux-specific scripts. The collected data enables **endpoint visibility**, **risk assessment**, and **vulnerability analysis** by allowing security practitioners to run structured SQL queries against centralized endpoint information.
 
 This project is designed as a foundation for:
 
@@ -31,6 +31,8 @@ This project is designed as a foundation for:
 * Detect and identify the operating system (Windows or Linux)
 * Collect detailed operating system and system metadata
 * Gather login and logout activity from endpoints
+* Provide multiple collection methods (cross-platform, OS-specific)
+* Offer user-friendly menu interface for script selection
 * Store telemetry data in a SQL database
 * Enable risk and vulnerability assessment through queries
 * Build a scalable foundation for future SIEM integration
@@ -71,9 +73,19 @@ Collected using native GNU/Linux utilities:
 * System architecture
 * Uptime
 
----
+### 4. Interactive Runner Script
 
-### 3. Authentication & Session Telemetry
+* **Menu-driven interface** for easy script selection
+* **Command-line parameters** for automated execution
+* **OS auto-detection** for appropriate script selection
+* **Export functionality** (JSON/CSV formats planned)
+* **Help system** with comprehensive usage instructions
+
+### 5. Multiple Collection Methods
+
+* **Cross-platform script**: Unified collection for any supported OS
+* **OS-specific scripts**: Optimized collection for Windows/Linux
+* **Flexible execution**: Choose manual selection or automatic detection
 
 #### Windows
 
@@ -125,8 +137,12 @@ Example analysis use cases:
 ```text
 Cross-Platform-PowerShell-SQL-Telemetry/
 │
-├── endpoint_telemetry.ps1    # PowerShell telemetry collection script
+├── run.ps1                   # Main runner script with interactive menu
+├── endpoint_telemetry.ps1    # Cross-platform telemetry collection script
+├── WindowsEpoint.ps1         # Windows-specific telemetry collection
+├── LinuxEpoint.ps1           # Linux-specific telemetry collection
 ├── README.md                 # Project documentation
+└── run.ps1.backup           # Backup of runner script
 ```
 
 ---
@@ -148,12 +164,64 @@ Cross-Platform-PowerShell-SQL-Telemetry/
 
 ## Usage
 
-```powershell
-# Run the telemetry collection script
-./endpoint_telemetry.ps1
+### Interactive Menu (Recommended)
+
+```bash
+# Launch interactive menu for script selection
+./run.ps1
+
+# Or explicitly request the menu
+./run.ps1 -Menu
 ```
 
-The script outputs:
+The interactive menu provides options to:
+1. **Windows Telemetry** - Run WindowsEpoint.ps1
+2. **Linux Telemetry** - Run LinuxEpoint.ps1  
+3. **Cross-Platform Telemetry** - Run endpoint_telemetry.ps1
+4. **Exit** - Close the application
+
+### Command-Line Parameters
+
+The runner script supports the following parameters:
+
+| Parameter | Description | Example |
+|-----------|-------------|---------|
+| `-Collect` | Auto-detect OS and run telemetry collection | `./run.ps1 -Collect` |
+| `-Menu` | Show interactive menu | `./run.ps1 -Menu` |
+| `-Export` | Export results to file (framework ready) | `./run.ps1 -Collect -Export` |
+| `-OutputFormat` | Output format: Console, JSON, CSV | `-OutputFormat JSON` |
+| `-OutputFile` | Output file path (required with -Export) | `-OutputFile results.json` |
+| `-Help` | Display help information | `./run.ps1 -Help` |
+
+### Command-Line Execution
+
+```powershell
+# Auto-detect OS and run appropriate telemetry collection
+./run.ps1 -Collect
+
+# Export results to file (future feature)
+./run.ps1 -Collect -Export -OutputFormat JSON -OutputFile results.json
+
+# Display help information
+./run.ps1 -Help
+```
+
+### Direct Script Execution
+
+```powershell
+# Run cross-platform collection directly
+./endpoint_telemetry.ps1
+
+# Run Windows-specific collection
+./WindowsEpoint.ps1
+
+# Run Linux-specific collection
+./LinuxEpoint.ps1
+```
+
+### Output
+
+All scripts output:
 
 * Detected operating system
 * OS and system information
@@ -176,10 +244,15 @@ This output is intended to be **stored in SQL** for further analysis.
 
 ## Future Enhancements
 
-Planned improvements include:
+**✅ Completed:**
+* Interactive menu-driven interface
+* Multiple collection method support
+* Cross-platform and OS-specific scripts
+* Command-line parameter support
 
+**🔄 Planned:**
 * Automated SQL ingestion
-* JSON and CSV export options
+* JSON and CSV export options (framework in place)
 * Field normalization across operating systems
 * Risk scoring logic
 * MITRE ATT&CK technique mapping
