@@ -6,7 +6,7 @@
 # =====================================================
 
 param(
-    [string]$DatabasePath = "telemetry.db",
+    [string]$DatabasePath = "database/telemetry.db",
     [switch]$Help
 )
 
