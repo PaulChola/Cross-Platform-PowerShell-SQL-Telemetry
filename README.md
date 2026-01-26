@@ -1,5 +1,3 @@
----
-
 ## 🔹 Overview
 
 This project is designed to **collect critical endpoint data** such as OS information, login/logout events, and system activity across Windows devices.
@@ -7,16 +5,12 @@ The collected data is **stored in SQLite** for structured analysis, reporting, a
 
 **Purpose:** Support **SOC analysts** in detecting suspicious activity and performing incident investigations.
 
----
-
 ## 🔹 SOC Use Cases
 
 * Detect unauthorized logins or privilege escalation
 * Investigate compromised endpoints
 * Audit system activity for compliance
 * Feed telemetry data into SIEM solutions (e.g., Splunk, Azure Sentinel)
-
----
 
 ## 🔹 Features
 
@@ -26,15 +20,11 @@ The collected data is **stored in SQLite** for structured analysis, reporting, a
 * Structured SQLite storage for analysis
 * Lightweight and easily extensible
 
----
-
 ## 🔹 Tech Stack
 
 * **PowerShell** – endpoint collection
 * **SQLite** – structured storage
 * Optional: Python for post-processing / analysis
-
----
 
 ## 🔹 Sample Output
 
