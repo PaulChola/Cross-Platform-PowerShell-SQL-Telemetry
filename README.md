@@ -51,10 +51,9 @@ Support **SOC Analysts** and **Blue Teamers** in detecting suspicious behavior, 
 
 Example queried data:
 
-| Hostname | Username | EventType | Timestamp        | OS           | Notes          |
-|---------|----------|-----------|------------------|--------------|----------------|
-| LAPTOP1 | paul     | Logon     | 2026-01-26 10:45 | Windows 10   | Normal login   |
-| SERVER1 | admin    | Logoff    | 2026-01-26 10:50 | Windows 2019 | Session ended  |
+<p align="center">
+  <img src="images/queried-db.png" alt="Telemetry Database Screenshot" width="750">
+</p>
 
 ---
 
